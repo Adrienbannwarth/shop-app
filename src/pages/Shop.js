@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 // COMPONENTS
 
@@ -10,7 +10,7 @@ import Basket from '../components/Basket';
 export default class Shop extends Component {
   constructor(props) {
     super(props);
-    this.state = { products: [], filteredProducts: [], cartItems: [] }
+    this.state = { products: [], filteredProducts: [], cartItems: [], isOpenCart: false }
 
     this.handleChangeSort = this.handleChangeSort.bind(this);
     this.handleChangeSize = this.handleChangeSize.bind(this);
@@ -94,34 +94,37 @@ export default class Shop extends Component {
 
   render() {
     return (
-      <div>
-        <h1>E commerce shop</h1>
-        <br>
-        </br>
-        <div className="row">
-          <div className="col-md-8">
-            <Filter
-              size={this.state.size}
-              sort={this.state.sortBy}
-              handleChangeSize={this.handleChangeSize}
-              handleChangeSort={this.handleChangeSort}
-              count={this.state.filteredProducts.length}
-            />
-            <hr></hr>
-            <Products
-              products={this.state.filteredProducts}
-              handleAddToCart={this.handleAddToCart}
-
-            />
-          </div>
-          <div className="col-md-4">
-            <Basket
-              cartItems={this.state.cartItems}
-              handleRemoveFromCart={this.handleRemoveFromCart}
-            />
+        <div>
+          <h1>E commerce shop</h1>
+          <br>
+          </br>
+          <div className="row">
+            <div className="col-md-8">
+              <Filter
+                size={this.state.size}
+                sort={this.state.sortBy}
+                handleChangeSize={this.handleChangeSize}
+                handleChangeSort={this.handleChangeSort}
+                count={this.state.filteredProducts.length}
+              />
+              <hr></hr>
+              <Products
+                products={this.state.filteredProducts}
+                handleAddToCart={this.handleAddToCart}
+                cartItems={this.state.cartItems}
+              />
+            </div>
+            <div className="col-md-4">
+              <p onClick={() => this.setState({ isOpenCart: !this.state.isOpenCart })}>le panier</p>
+              <div className={this.state.isOpenCart ? "is-open" : "is-close"}>
+                <Basket
+                  cartItems={this.state.cartItems}
+                  handleRemoveFromCart={this.handleRemoveFromCart}
+                />
+              </div>
+            </div>
           </div>
         </div>
-      </div>
     )
   }
 }

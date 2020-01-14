@@ -1,0 +1,290 @@
+//Base
+@import './base/variables';
+@import './base/layouts';
+@import './base/mixins';
+@import './base/texts';
+// Components
+
+
+// body:after {
+//   animation: grain 1s steps(10) infinite;
+//   background-image: url(grains.png);
+//   content: "";
+//   height: 300%;
+//   left: -50%;
+//   opacity: 0.3;
+//   position: fixed;
+//   top: -110%;
+//   width: 300%;
+//   z-index: -1;
+// }
+
+
+
+@keyframes grain {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(-5%, -10%);
+  }
+
+  20% {
+    transform: translate(-15%, 5%);
+  }
+
+  30% {
+    transform: translate(7%, -25%);
+  }
+
+  40% {
+    transform: translate(-5%, 25%);
+  }
+
+  50% {
+    transform: translate(-15%, 10%);
+  }
+
+  60% {
+    transform: translate(15%, 0);
+  }
+
+  70% {
+    transform: translate(0, 15%);
+  }
+
+  80% {
+    transform: translate(3%, 35%);
+  }
+
+  90% {
+    transform: translate(-10%, 10%);
+  }
+}
+
+// SLIDER
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: 475px;
+  overflow: hidden;
+  white-space: nowrap;
+
+  transition: ease-in 3s;
+
+  .slider-wrapper {
+    position: relative;
+    height: 100px;
+
+    .slide {
+      display: inline-block;
+      width: calc(33% - 10px);
+      margin-right: 20px;
+
+      &:after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+      }
+    }
+  }
+}
+
+.right-arrow,
+.left-arrow {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9f9f9;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform ease-in .1s;
+
+  &:hover {
+    transition: transform ease-in .1s;
+    transform: scale(1.1)
+  }
+}
+
+.nextArrow {
+  top: 0;
+  right: 0;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  cursor: url('../arrow_right.png'), pointer;
+}
+
+.backArrow {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  cursor: url('../arrow_left.png'), pointer;
+}
+
+.img__product {
+  width: 100%;
+}
+
+.footer-slider {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.current-index {
+  flex: 1;
+}
+
+
+.progress-bar-contain {
+  height: 3px;
+  flex: 5;
+  background-color: rgb(174, 171, 171);
+
+  .progress-bar {
+    height: 3px;
+    background-color: black;
+  }
+
+}
+
+.footer-slider-arrow {
+  flex: 2;
+
+  .backArrow {
+    width: 80px;
+    height: 80px;
+    background: url('../arrow_left_footer.png');
+  }
+
+  .nextArrow {
+    width: 80px;
+    height: 80px;
+    background: url('../arrow_right_footer.png');
+  }
+}
+
+.fade-enter {
+  opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+div.transition-group {
+  position: relative;
+  background-color: red;
+}
+
+section.route-section {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.btn-burger {
+  position: absolute;
+  right: 60px;
+  top: 70px;
+  width: 40px;
+  height: 60px;
+
+  z-index: 3;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  span {
+    position: absolute;
+    top: 0;
+    width: 30px;
+    height: 3px;
+
+    transition: transform .5s, width .1s, -webkit-transform .5s;
+    background-color: black;
+
+    &:first-child {
+      top: 10px;
+      width: 25px;
+    }
+
+    &:last-child {
+      top: 20px;
+      width: 35px;
+    }
+  }
+}
+
+header {
+  padding-top: 40px;
+}
+
+.nav-logo {
+  position: absolute;
+  left: 20px;
+  width: 200px;
+}
+
+nav {
+  position: relative;
+  text-align: center;
+
+  ul {
+    display: flex;
+    justify-content: center;
+  }
+
+  li {
+    padding: 0 20px;
+    list-style: none;
+    color: black;
+  }
+}
+
+.is-close {
+  display: none;
+}
+
+.is-open {
+  display: block;
+}
+
+.container-menu {
+  position: absolute;
+  width: 30%;
+  height: 100vh;
+  right: 0;
+
+  background-color: red;
+}
+
+.is-close-menu {
+  display: none;
+}
+
+.is-open-menu {
+  display: block;
+}

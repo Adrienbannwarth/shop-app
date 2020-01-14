@@ -5,7 +5,7 @@ export default class Filter extends Component {
     return (
       <div className="row">
         <div className="col-mb-4">
-          {this.props.count} products found
+        {`${this.props.count} products.`}
         </div>
         <div className="col-mb-4">
           <label>
